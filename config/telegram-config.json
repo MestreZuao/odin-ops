@@ -1,0 +1,42 @@
+{
+  "telegram": {
+    "enabled": true,
+    "botName": "OdinSquadBot",
+    "botId": "7993651039",
+    "tokenConfigured": true,
+    "apiEndpoint": "https://api.telegram.org",
+    "features": {
+      "notifications": {
+        "enabled": true,
+        "description": "Squad OPS task notifications"
+      },
+      "commands": {
+        "enabled": true,
+        "description": "Interactive commands from Telegram"
+      },
+      "feedback": {
+        "enabled": true,
+        "description": "User feedback and reports"
+      }
+    },
+    "integrations": {
+      "squad_ops": {
+        "enabled": true,
+        "agents": ["tyr", "skadi", "vili", "bragi", "heimdall"],
+        "notifications": [
+          "Demand received",
+          "Task started",
+          "Quality gate passed",
+          "Quality gate failed",
+          "Task completed",
+          "Delivery notification"
+        ]
+      }
+    },
+    "environment": {
+      "tokenSource": ".env (TELEGRAM_BOT_TOKEN)",
+      "chatIdSource": ".env (TELEGRAM_CHAT_ID)",
+      "status": "configured"
+    }
+  }
+}
