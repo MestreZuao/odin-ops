@@ -1,0 +1,93 @@
+---
+# Squad OPS - Manifest
+# Operations Orchestration & Process Optimization Squad
+
+name: ops-squad
+version: 1.0.0
+description: "Orquestração e otimização de processos operacionais com especialização por função"
+author: "Synkra AIOX"
+license: MIT
+
+slashPrefix: ops
+
+aiox:
+  minVersion: "2.1.0"
+  type: squad
+  framework: task-first
+
+components:
+  agents:
+    - tyr.md
+    - skadi.md
+    - vili.md
+    - bragi.md
+    - heimdall.md
+
+  tasks:
+    # Tyr - Orchestrator
+    - tyr-receive-demand.md
+    - tyr-distribute-to-agent.md
+    - tyr-track-progress.md
+    - tyr-deliver-package.md
+
+    # Skadi - Process Mapper
+    - skadi-discovery-process.md
+    - skadi-create-process.md
+
+    # Vili - Architect
+    - vili-design-architecture.md
+    - vili-design-executors.md
+
+    # Bragi - Automation Architect
+    - bragi-create-task-definitions.md
+    - bragi-create-automations.md
+
+    # Heimdall - QA
+    - heimdall-design-qa-gates.md
+    - heimdall-execute-qa-gates.md
+
+  workflows:
+    - demand-workflow.md
+    - process-optimization-workflow.md
+    - quality-gate-validation.md
+
+  checklists:
+    - agent-handoff-checklist.md
+    - process-quality-gates.md
+
+  templates:
+    - demand-template.md
+    - process-map-template.md
+
+config:
+  extends: extend
+  coding-standards: ../../docs/framework/CODING-STANDARDS.md
+  tech-stack: ../../docs/framework/TECH-STACK.md
+  source-tree: ../../docs/framework/SOURCE-TREE.md
+
+dependencies:
+  node: []
+  python: []
+  squads: []
+
+tags:
+  - operations
+  - orchestration
+  - process-optimization
+  - automation
+  - management
+
+tools:
+  required:
+    - ClickUp
+    - Telegram
+    - Obsidian
+    - Figma
+    - N8N
+    - Google Workspace
+
+metadata:
+  created_at: "2026-03-09T00:00:00Z"
+  design_blueprint: ".designs/ops-squad-design.yaml"
+  status: "ready"
+  quality_gates_threshold: 70

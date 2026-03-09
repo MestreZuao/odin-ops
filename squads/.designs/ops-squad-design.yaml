@@ -1,0 +1,350 @@
+---
+# Squad OPS - Design Blueprint
+# Generated: 2026-03-09
+# Template: task-first architecture
+
+squad:
+  name: ops-squad
+  description: "Orquestração e otimização de processos operacionais com especialização por função"
+  domain: "operations-orchestration"
+  version: "1.0"
+
+analysis:
+  entities:
+    - Demand
+    - Process
+    - Task
+    - Automation
+    - QualityGate
+    - Executor
+    - Workflow
+    - Integration
+
+  workflows:
+    - demand-reception-distribution-execution-delivery
+    - process-discovery-design-architecture-automation-qa
+    - quality-gate-validation-loop
+
+  integrations:
+    - ClickUp (task management, automations)
+    - Figma (visual design, flowcharts)
+    - N8N (workflow automation)
+    - Telegram (notifications, communication)
+    - Google Workspace (Docs, Sheets, Drive)
+    - Obsidian (documentation, wiki)
+    - Webhooks (external integrations)
+    - APIs (system connections)
+
+  stakeholders:
+    - Orchestrator (Tyr)
+    - Process Specialist (Skadi)
+    - Architecture Designer (Vili)
+    - Automation Engineer (Bragi)
+    - Quality Assurance (Heimdall)
+
+recommendations:
+  agents:
+    - id: tyr
+      name: Tyr
+      role: "AI Head de OPS - Orquestrador central"
+      archetype: orchestrator
+      commands:
+        - receive-demand
+        - distribute-to-agent
+        - track-progress
+        - deliver-package
+      tools:
+        - ClickUp
+        - Telegram
+        - Obsidian
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+
+    - id: skadi
+      name: Skadi
+      role: "Process Mapper - Especialista em mapeamento e redesenho de processos"
+      archetype: process-specialist
+      commands:
+        - discovery-process
+        - create-process
+      tools:
+        - Figma
+        - Obsidian
+        - Google Docs
+      confidence: 0.92
+      user_added: false
+      user_modified: false
+
+    - id: vili
+      name: Vili
+      role: "Architect - Tradutor de processos para arquitetura operacional"
+      archetype: architect
+      commands:
+        - design-architecture
+        - design-executors
+      tools:
+        - ClickUp
+        - Obsidian
+        - Google Drive
+        - Google Sheets
+      confidence: 0.90
+      user_added: false
+      user_modified: false
+
+    - id: bragi
+      name: Bragi
+      role: "Automation Architect - Construtor de automações e integrações"
+      archetype: automation-engineer
+      commands:
+        - create-task-definitions
+        - create-automations
+      tools:
+        - ClickUp
+        - Obsidian
+        - ClickUp Automations
+        - N8N
+        - Webhooks
+        - APIs
+      confidence: 0.88
+      user_added: false
+      user_modified: false
+
+    - id: heimdall
+      name: Heimdall
+      role: "QA - Validador de processos, arquitetura e automações"
+      archetype: quality-assurance
+      commands:
+        - design-qa-gates
+        - execute-qa-gates
+      tools:
+        - ClickUp
+        - Obsidian
+        - Google Sheets
+      confidence: 0.90
+      user_added: false
+      user_modified: false
+
+  tasks:
+    # Tyr - Orchestrator Tasks
+    - name: receive-demand
+      agent: tyr
+      type: entry-point
+      entrada:
+        - demand_title (string)
+        - demand_description (string)
+        - requester (string)
+        - priority (enum: low, medium, high, critical)
+      saida:
+        - demand_id (string)
+        - structured_demand (object)
+        - assigned_to_clickup (boolean)
+      confidence: 0.95
+      user_added: false
+
+    - name: distribute-to-agent
+      agent: tyr
+      type: orchestration
+      entrada:
+        - structured_demand (object)
+      saida:
+        - assigned_agent (string)
+        - task_created_in_clickup (boolean)
+        - agent_notified (boolean)
+      confidence: 0.94
+      user_added: false
+
+    - name: track-progress
+      agent: tyr
+      type: monitoring
+      entrada:
+        - demand_id (string)
+        - agent_feedback (object)
+      saida:
+        - progress_status (enum: not-started, in-progress, qa-validation, blocked, complete)
+        - quality_gate_score (number 0-100)
+        - next_action (string)
+      confidence: 0.92
+      user_added: false
+
+    - name: deliver-package
+      agent: tyr
+      type: delivery
+      entrada:
+        - validated_result (object)
+        - final_qa_approval (boolean)
+      saida:
+        - delivery_notification (sent)
+        - archived_documentation (boolean)
+        - requester_satisfied (boolean)
+      confidence: 0.91
+      user_added: false
+
+    # Skadi - Process Mapper Tasks
+    - name: discovery-process
+      agent: skadi
+      type: research
+      entrada:
+        - process_description (string)
+        - stakeholder_interviews (list)
+        - current_workflow_docs (list)
+      saida:
+        - process_map (Figma file)
+        - gaps_identified (list)
+        - bottlenecks_identified (list)
+        - documentation (Obsidian)
+      confidence: 0.93
+      user_added: false
+
+    - name: create-process
+      agent: skadi
+      type: design
+      entrada:
+        - discovered_process_map (Figma file)
+        - optimization_goals (list)
+      saida:
+        - optimized_flowchart (Figma file)
+        - process_documentation (Obsidian)
+        - handoff_definitions (list)
+        - stakeholder_validation (boolean)
+      confidence: 0.91
+      user_added: false
+
+    # Vili - Architect Tasks
+    - name: design-architecture
+      agent: vili
+      type: design
+      entrada:
+        - optimized_flowchart (Figma file)
+        - team_size (number)
+      saida:
+        - clickup_structure (object: folders, lists, fields, status)
+        - custom_fields_definition (list)
+        - templates_created (number)
+        - views_by_role (object)
+      confidence: 0.90
+      user_added: false
+
+    - name: design-executors
+      agent: vili
+      type: design
+      entrada:
+        - clickup_structure (object)
+      saida:
+        - responsibility_matrix (Google Sheets)
+        - sla_definitions (object)
+        - blocking_rules (list)
+        - handoff_rules (list)
+      confidence: 0.89
+      user_added: false
+
+    # Bragi - Automation Architect Tasks
+    - name: create-task-definitions
+      agent: bragi
+      type: specification
+      entrada:
+        - responsibility_matrix (Google Sheets)
+      saida:
+        - task_definitions (Obsidian markdown)
+        - input_output_specs (object)
+        - acceptance_criteria (list)
+        - dependencies (list)
+        - done_definition (string)
+      confidence: 0.88
+      user_added: false
+
+    - name: create-automations
+      agent: bragi
+      type: implementation
+      entrada:
+        - task_definitions (Obsidian markdown)
+      saida:
+        - clickup_automations (configured)
+        - n8n_workflows (deployed)
+        - webhook_configurations (object)
+        - api_integrations (list)
+        - automation_tests_passed (boolean)
+        - documentation (Obsidian)
+      confidence: 0.87
+      user_added: false
+
+    # Heimdall - QA Tasks
+    - name: design-qa-gates
+      agent: heimdall
+      type: specification
+      entrada:
+        - automations_configured (object)
+      saida:
+        - quality_criteria (list)
+        - validation_checklists (Sheets)
+        - gate_definitions (object: 70% threshold)
+        - approvers_by_gate (object)
+      confidence: 0.90
+      user_added: false
+
+    - name: execute-qa-gates
+      agent: heimdall
+      type: validation
+      entrada:
+        - validation_checklists (Sheets)
+      saida:
+        - qa_report (Obsidian)
+        - validation_result (enum: passed, blocked, needs-fixes)
+        - issues_found (list)
+        - agent_for_fixes (string)
+        - evidence_screenshots (list)
+      confidence: 0.88
+      user_added: false
+
+  quality_gates:
+    - gate_1_process_mapper:
+        threshold: 70
+        description: "Process design validation"
+        from_agent: skadi
+        to_agent: vili
+        exit_criteria:
+          - process_clarity_score: ">= 7"
+          - stakeholder_validation: "yes"
+          - documentation_complete: "yes"
+
+    - gate_2_architect:
+        threshold: 70
+        description: "Architecture and executors validation"
+        from_agent: vili
+        to_agent: bragi
+        exit_criteria:
+          - architecture_clarity: ">= 7"
+          - responsibility_matrix_complete: "yes"
+          - field_definitions_valid: "yes"
+
+    - gate_3_automation_architect:
+        threshold: 70
+        description: "Automation configuration and testing validation"
+        from_agent: bragi
+        to_agent: heimdall
+        exit_criteria:
+          - automations_tested: "yes"
+          - integration_errors: "0"
+          - documentation_complete: "yes"
+
+    - gate_4_qa_final:
+        threshold: 70
+        description: "Final process validation and delivery readiness"
+        from_agent: heimdall
+        to_agent: tyr
+        exit_criteria:
+          - all_checklists_passed: ">= 70%"
+          - issues_resolved: "yes"
+          - user_acceptance_validated: "yes"
+
+  template: task-first
+  config_mode: extend
+
+metadata:
+  created_at: "2026-03-09T00:00:00Z"
+  source_docs:
+    - "User verbal description of Squad OPS"
+  user_adjustments: 0
+  overall_confidence: 0.90
+  status: ready-for-creation
+  notes: "Blueprint ready for squad creation. All 5 agents and 12 tasks validated."
