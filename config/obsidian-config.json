@@ -1,0 +1,52 @@
+{
+  "obsidian": {
+    "enabled": true,
+    "vault_name": "BRAIN",
+    "vault_path": "D:\\ProjetosIA\\Obsidian\\BRAIN\\Brain JV",
+    "sync_type": "local",
+    "status": "configured",
+    "structure": {
+      "root": "00 - Squad OPS",
+      "subfolders": {
+        "agents": "Agents",
+        "processes": "Processes",
+        "automations": "Automations",
+        "qa": "QA",
+        "templates": "Templates"
+      }
+    },
+    "integrations": {
+      "squad_ops": {
+        "enabled": true,
+        "agents": ["tyr", "skadi", "vili", "bragi", "heimdall"],
+        "use_cases": [
+          "Process documentation",
+          "Agent task tracking",
+          "Automation logs",
+          "QA reports and checklists",
+          "Templates and standards"
+        ]
+      }
+    },
+    "sync_strategy": {
+      "type": "local-only",
+      "frequency": "on-demand",
+      "backup": "none",
+      "conflict_resolution": "manual"
+    },
+    "features": {
+      "note_creation": true,
+      "note_reading": true,
+      "note_updating": true,
+      "folder_scanning": true,
+      "metadata_extraction": true,
+      "backlinks": true
+    },
+    "environment": {
+      "vault_path_source": ".env (OBSIDIAN_VAULT_PATH)",
+      "status": "configured"
+    },
+    "created_at": "2026-03-09",
+    "notes": "Vault Obsidian conectado localmente. Sem sincronização na nuvem."
+  }
+}
