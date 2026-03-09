@@ -28,7 +28,7 @@ Este arquivo contém:
 
 ```bash
 # .env
-TELEGRAM_BOT_TOKEN=7993651039:AAFcdkCnPg61VlP2IsPQamsc6gF7KGAiNQ8
+TELEGRAM_BOT_TOKEN=<seu_bot_token
 TELEGRAM_CHAT_ID=<seu_chat_id>  # Opcional, para targeting específico
 ```
 
