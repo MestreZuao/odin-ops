@@ -1,0 +1,50 @@
+{
+  "google_workspace": {
+    "enabled": true,
+    "project_id": "odin-ops",
+    "auth_method": "oauth2",
+    "tokenConfigured": false,
+    "apis": {
+      "docs": {
+        "enabled": true,
+        "version": "v1",
+        "description": "Google Docs for process documentation"
+      },
+      "sheets": {
+        "enabled": true,
+        "version": "v4",
+        "description": "Google Sheets for data and metrics"
+      },
+      "drive": {
+        "enabled": true,
+        "version": "v3",
+        "description": "Google Drive for file storage"
+      }
+    },
+    "integrations": {
+      "squad_ops": {
+        "enabled": true,
+        "agents": ["skadi", "vili", "bragi", "heimdall"],
+        "use_cases": [
+          "Process documentation (Docs)",
+          "SLA tracking (Sheets)",
+          "Metrics and reports (Sheets)",
+          "File storage (Drive)",
+          "Automation logs (Drive)"
+        ]
+      }
+    },
+    "environment": {
+      "clientId": "GOOGLE_CLIENT_ID (from .env)",
+      "clientSecret": "GOOGLE_CLIENT_SECRET (from .env)",
+      "refreshToken": "GOOGLE_REFRESH_TOKEN (from .env)",
+      "redirectUri": "http://localhost:3000/callback"
+    },
+    "setup_instructions": {
+      "step_1": "Run: node scripts/google-oauth-setup.js",
+      "step_2": "Authorize in browser when prompted",
+      "step_3": "Refresh token will be saved to .env automatically",
+      "step_4": "Test with: node lib/google-client.js"
+    }
+  }
+}
